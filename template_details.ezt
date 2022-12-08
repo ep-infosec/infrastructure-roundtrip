@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title>Round Trip Statistics for [hostname]</title>
+    <style type="text/css">
+        html {
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: radial-gradient(ellipse at center, #1c2944 0%, #475168 100%);
+        }
+
+        table {
+            box-shadow: 0 0 4px black;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 1900px;
+            margin: 0 auto;
+            position: relative;
+            font-size: 1.05em;
+        }
+
+        tr {
+            box-shadow: inset 0 0 1px black;
+        }
+
+        th,
+        td {
+            margin: 0px;
+            padding: 3px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 1.05em;
+            -webkit-background-clip: padding-box;
+            outline: none;
+        }
+
+        th {
+            background-color: #222;
+            color: white;
+            font-size: 1rem;
+            font-family: sans-serif;
+        }
+
+        tr:nth-child(even) {
+            background-color: #EEE;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FFF;
+        }
+
+        tr:nth-child(even)>td.good {
+            background-color: #0A0;
+        }
+
+        tr:nth-child(odd)>td.good {
+            background-color: #080;
+        }
+
+        tr:nth-child(even)>td.noshow {
+            background-color: #A00;
+        }
+
+        tr:nth-child(odd)>td.noshow {
+            background-color: #F00;
+        }
+
+        tr:nth-child(even)>td.slow {
+            background-color: #C70;
+        }
+
+        tr:nth-child(odd)>td.slow {
+            background-color: #FD2;
+        }
+
+        td.pending {
+            background-color: wheat;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+    </style>
+</head>
+<body style='font-family: sans-serif;'>
+
+<h2 style="text-align: center;">Mail Delivery Delay Statistics for [hostname]</h2>
+<p style="text-align: center;">
+    Out of the last [num_probes] probes, [num_probes_received] have returned,
+    with an average delivery delay of [average_wait] seconds.
+</p>
+<table>
+    <tr><th></th></th><th>UUID:</th><th>Sent via:</th><th>Received:</th><th>Sent:</th><th>Arrived:</th><th>Roundtrip duration:</th></tr>
+    [for rows]
+    <tr><td class="[rows.classname]">&nbsp;&nbsp;</td><td>[rows.id]</td><td>[rows.via]</td><td>[rows.how_long_ago]</td><td>[rows.sent]</td><td>[rows.received]</td><td align='right'>[rows.duration] seconds</td></tr>
+    [end]
+</table>
+</body>
+</html>

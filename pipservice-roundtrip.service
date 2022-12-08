@@ -1,0 +1,11 @@
+[Unit]
+Description=RoundTrip Client App
+ 
+[Service]
+Type=simple
+WorkingDirectory=/opt/roundtrip
+ExecStart=/usr/local/bin/pipenv run python3 roundtrip.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
